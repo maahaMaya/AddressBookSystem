@@ -9,7 +9,7 @@ namespace AddressBookSystemSolution
             bool flag = true;
             while (flag)
             {
-                Console.Write("Enter the option : 1.AddContact 2.DisplayContact 3.Edit AnyOtherOption-Exit : ");
+                Console.Write("Enter the option : 1.AddContact 2.DisplayContact 3.Edit 4.Delete AnyOtherOption-Exit : ");
                 int option = Convert.ToInt16(Console.ReadLine());
                 switch(option)
                 {
@@ -21,6 +21,9 @@ namespace AddressBookSystemSolution
                         break;
                     case 3:
                         addressBook.EditContactBook();
+                        break;
+                    case 4:
+                        addressBook.DeleteContactBook();
                         break;
                     default:
                         flag= false;

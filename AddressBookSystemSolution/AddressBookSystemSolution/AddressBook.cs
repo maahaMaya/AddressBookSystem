@@ -34,7 +34,7 @@ namespace AddressBookSystemSolution
         //UC3
         public void EditContactBook()
         {
-            Console.Write("Enter name to serach and edit : ");
+            Console.Write("Enter first name or last name to serach and edit : ");
             string inputSearchAndEditUsingName = Console.ReadLine();
             if ((contackBook.firstName.Equals(inputSearchAndEditUsingName)) || (contackBook.lastName.Equals(inputSearchAndEditUsingName)))
             {
@@ -75,6 +75,16 @@ namespace AddressBookSystemSolution
                         break;
                 }
             }
+        }
+
+        //UC4
+        public void DeleteContactBook()
+        {
+            Console.Write("Enter first name or last name to serach and delete : ");
+            string inputSearchAndEditUsingName = Console.ReadLine();
+            if ((contackBook.firstName.Equals(inputSearchAndEditUsingName)) || (contackBook.lastName.Equals(inputSearchAndEditUsingName)))
+                contackBook = new ContackBook();
+                //contactBook = null;
         }
         public void DisplayContactBook()
         {
