@@ -1,1 +1,11 @@
-﻿Console.WriteLine("Welcome to the address book system solution.");
+﻿using System;
+namespace AddressBookSystemSolution
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+        }
+    }
+}
