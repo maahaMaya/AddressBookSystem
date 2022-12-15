@@ -10,10 +10,12 @@ namespace AddressBookSystemSolution
 {
     internal class AddressBook
     {
-        ContackBook contackBook = new ContackBook();
+        //UC5
+        List<ContackBook> listOfContactBook = new List<ContackBook>();
         //UC2
         public void AddcontackBookIncontackBookBook()
         {
+            ContackBook contackBook = new ContackBook();
             Console.Write("Enter  FirstName: ");
             contackBook.firstName = Console.ReadLine();
             Console.Write("Enter  LastName: ");
@@ -30,67 +32,75 @@ namespace AddressBookSystemSolution
             contackBook.phoneNumber = Console.ReadLine();
             Console.Write("Enter  Email: ");
             contackBook.email = Console.ReadLine();
+            listOfContactBook.Add(contackBook);
         }
         //UC3
         public void EditContactBook()
         {
             Console.Write("Enter first name or last name to serach and edit : ");
             string inputSearchAndEditUsingName = Console.ReadLine();
-            if ((contackBook.firstName.Equals(inputSearchAndEditUsingName)) || (contackBook.lastName.Equals(inputSearchAndEditUsingName)))
+            foreach(var contackBookData in listOfContactBook)
             {
-                Console.WriteLine("1.FirstName 2.LastName 3.Address 4.City 5.State 6.Zip 7.PhoneNumber 8.Email : ");
-                int option = Convert.ToInt32(Console.ReadLine());
-                switch (option)
+                if ((contackBookData.firstName.Equals(inputSearchAndEditUsingName)) || (contackBookData.lastName.Equals(inputSearchAndEditUsingName)))
                 {
-                    case 1:
-                        Console.Write("Enter first name : ");
-                        contackBook.firstName = Console.ReadLine();
-                        break;
-                    case 2:
-                        Console.Write("Enter last name : ");
-                        contackBook.lastName = Console.ReadLine();
-                        break;
-                    case 3:
-                        Console.Write("Enter address : ");
-                        contackBook.address = Console.ReadLine();
-                        break;
-                    case 4:
-                        Console.Write("Enter city : ");
-                        contackBook.city = Console.ReadLine();
-                        break;
-                    case 5:
-                        Console.Write("Enter state : ");
-                        contackBook.state = Console.ReadLine();
-                        break;
-                    case 6:
-                        Console.Write("Enter zip code : ");
-                        contackBook.zipCode = Console.ReadLine();
-                        break;
-                    case 7:
-                        Console.Write("Enter first name");
-                        contackBook.phoneNumber = Console.ReadLine();
-                        break;
-                    case 8:
-                        contackBook.email = Console.ReadLine();
-                        break;
+                    Console.WriteLine("1.FirstName 2.LastName 3.Address 4.City 5.State 6.Zip 7.PhoneNumber 8.Email : ");
+                    int option = Convert.ToInt32(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            Console.Write("Enter first name : ");
+                            contackBookData.firstName = Console.ReadLine();
+                            break;
+                        case 2:
+                            Console.Write("Enter last name : ");
+                            contackBookData.lastName = Console.ReadLine();
+                            break;
+                        case 3:
+                            Console.Write("Enter address : ");
+                            contackBookData.address = Console.ReadLine();
+                            break;
+                        case 4:
+                            Console.Write("Enter city : ");
+                            contackBookData.city = Console.ReadLine();
+                            break;
+                        case 5:
+                            Console.Write("Enter state : ");
+                            contackBookData.state = Console.ReadLine();
+                            break;
+                        case 6:
+                            Console.Write("Enter zip code : ");
+                            contackBookData.zipCode = Console.ReadLine();
+                            break;
+                        case 7:
+                            Console.Write("Enter first name");
+                            contackBookData.phoneNumber = Console.ReadLine();
+                            break;
+                        case 8:
+                            contackBookData.email = Console.ReadLine();
+                            break;
+                    }
                 }
-            }
+            }  
         }
 
         //UC4
         public void DeleteContactBook()
         {
             Console.Write("Enter first name or last name to serach and delete : ");
-            string inputSearchAndEditUsingName = Console.ReadLine();
-            if ((contackBook.firstName.Equals(inputSearchAndEditUsingName)) || (contackBook.lastName.Equals(inputSearchAndEditUsingName)))
-                contackBook = new ContackBook();
-                //contactBook = null;
+            string inputSearchAndDeleteUsingName = Console.ReadLine();
+            foreach (var contackBookData in listOfContactBook)
+                if ((contackBookData.firstName.Equals(inputSearchAndDeleteUsingName)) || (contackBookData.lastName.Equals(inputSearchAndDeleteUsingName)))
+                {
+                    listOfContactBook.Remove(contackBookData);
+                    break;
+                }      
         }
         public void DisplayContactBook()
         {
-            Console.WriteLine("Contact Derails : \n" + "First Name : " + contackBook.firstName + "\n" + "Last Name : " + contackBook.lastName
-                                    + "\n" + "Address is : " + contackBook.address + "\n" + "City is : " + contackBook.city + "\n" + "State is : " + contackBook.state
-                                    + "\n" + "Zip is : " + contackBook.zipCode + "\n" + "Phone Number is :" + contackBook.phoneNumber + "\n" + "Email is : " + contackBook.email);
+            foreach (var contackBookData in listOfContactBook)
+                Console.WriteLine("Contact Derails : \n" + "First Name : " + contackBookData.firstName + "\n" + "Last Name : " + contackBookData.lastName
+                                    + "\n" + "Address is : " + contackBookData.address + "\n" + "City is : " + contackBookData.city + "\n" + "State is : " + contackBookData.state
+                                    + "\n" + "Zip is : " + contackBookData.zipCode + "\n" + "Phone Number is :" + contackBookData.phoneNumber + "\n" + "Email is : " + contackBookData.email);
         }
     }
 }
