@@ -29,6 +29,8 @@ namespace AddressBookSystemSolution
             contackBook.phoneNumber = Console.ReadLine();
             Console.Write("Enter  Email: ");
             contackBook.email = Console.ReadLine();
+
+            //UC7
             if (listOfContactBook.Count.Equals(0))
             {
                 listOfContactBook.Add(contackBook);
@@ -36,16 +38,15 @@ namespace AddressBookSystemSolution
             }
             else 
             {
-                foreach(var data in listOfContactBook)
-                    if(data.firstName.Equals(contackBook.firstName) || data.lastName.Equals(contackBook.lastName))
-                        flag = false;
+                foreach (var data in listOfContactBook.FindAll(x => x.firstName.Equals(contackBook.firstName) || x.lastName.Equals(contackBook.lastName)))
+                    flag = false;
             }
             if(flag)
                 listOfContactBook.Add(contackBook);
             else
                 Console.WriteLine("Name already exist please change the first or last name.");
-
         }
+
         //UC3
         public void EditContactBook()
         {
@@ -110,6 +111,7 @@ namespace AddressBookSystemSolution
                         break;
                     }      
         }
+
         //UC6
         public void MultipeContactAdd()
         {
