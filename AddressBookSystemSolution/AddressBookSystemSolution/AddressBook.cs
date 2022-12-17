@@ -111,14 +111,14 @@ namespace AddressBookSystemSolution
                         break;
                     }      
         }
-        //UC8
+        //UC8 //UC9
         public void SearchPersonInCityOrState()
         {
             Console.Write("Enter the city or state to search person : ");
             string serachCityOrState = Console.ReadLine();
             foreach(var data in multipleListOfContactBook)
                 foreach(var personFind in data.Value.FindAll(x => x.city.Equals(serachCityOrState) || x.state.Equals(serachCityOrState)))
-                    Console.WriteLine(personFind.firstName +" "+personFind.lastName);
+                    Console.WriteLine(personFind.firstName +" "+personFind.lastName); //UC9
         }
 
         //UC6
