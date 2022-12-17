@@ -9,7 +9,7 @@ namespace AddressBookSystemSolution
             bool flag = true;
             while (flag)
             {
-                Console.Write("Enter the option : 1.AddContact 2.DisplayContact 3.Edit 4.Delete 5.DictionaryAdd 6.DictonaryDisplay 7.searchCityorState AnyOtherOption-Exit : ");
+                Console.Write("Enter the option : 1.AddContact 2.DisplayContact 3.Edit 4.Delete 5.DictionaryAdd 6.DictonaryDisplay 7.searchCityorState 8.CountPersonInStateCity AnyOtherOption-Exit : ");
                 int option = Convert.ToInt16(Console.ReadLine());
                 switch(option)
                 {
@@ -33,6 +33,9 @@ namespace AddressBookSystemSolution
                         break;
                     case 7:
                         addressBook.SearchPersonInCityOrState();
+                        break;
+                    case 8:
+                        addressBook.CountPersonInCityOrState();
                         break;
                     default:
                         flag= false;

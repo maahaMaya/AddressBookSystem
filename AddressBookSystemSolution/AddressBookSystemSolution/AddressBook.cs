@@ -120,6 +120,17 @@ namespace AddressBookSystemSolution
                 foreach(var personFind in data.Value.FindAll(x => x.city.Equals(serachCityOrState) || x.state.Equals(serachCityOrState)))
                     Console.WriteLine(personFind.firstName +" "+personFind.lastName); //UC9
         }
+        //UC10
+        public void CountPersonInCityOrState()
+        {
+            int count = 0;
+            Console.Write("Enter the city or state to search person : ");
+            string countCityOrState = Console.ReadLine();
+            foreach (var data in multipleListOfContactBook)
+                foreach (var totalCount in data.Value.FindAll(x => x.city.Equals(countCityOrState) || x.state.Equals(countCityOrState)))
+                    count++;
+            Console.WriteLine("In the give city or state : "+countCityOrState+"\n total match found is :  "+count);
+        }
 
         //UC6
         public void MultipeContactAdd()
